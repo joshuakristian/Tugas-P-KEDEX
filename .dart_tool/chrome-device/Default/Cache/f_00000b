@@ -1,0 +1,403 @@
+define(['dart_sdk'], (function load__packages__pokedex2__pokemon_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const convert = dart_sdk.convert;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var pokemon$ = Object.create(dart.library);
+  var $add = dartx.add;
+  var $forEach = dartx.forEach;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    BasePokemonL: () => (T.BasePokemonL = dart.constFn(dart.legacy(pokemon$.BasePokemon)))(),
+    JSArrayOfBasePokemonL: () => (T.JSArrayOfBasePokemonL = dart.constFn(_interceptors.JSArray$(T.BasePokemonL())))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    MapOfStringL$dynamic: () => (T.MapOfStringL$dynamic = dart.constFn(core.Map$(T.StringL(), dart.dynamic)))(),
+    MapLOfStringL$dynamic: () => (T.MapLOfStringL$dynamic = dart.constFn(dart.legacy(T.MapOfStringL$dynamic())))(),
+    dynamicToNull: () => (T.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
+    IdentityMapOfStringL$dynamic: () => (T.IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(T.StringL(), dart.dynamic)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    StatL: () => (T.StatL = dart.constFn(dart.legacy(pokemon$.Stat)))(),
+    ListOfStatL: () => (T.ListOfStatL = dart.constFn(core.List$(T.StatL())))(),
+    dynamicToStatL: () => (T.dynamicToStatL = dart.constFn(dart.fnType(T.StatL(), [dart.dynamic])))(),
+    TypeL: () => (T.TypeL = dart.constFn(dart.legacy(pokemon$.Type)))(),
+    ListOfTypeL: () => (T.ListOfTypeL = dart.constFn(core.List$(T.TypeL())))(),
+    dynamicToTypeL: () => (T.dynamicToTypeL = dart.constFn(dart.fnType(T.TypeL(), [dart.dynamic])))(),
+    SpeciesL: () => (T.SpeciesL = dart.constFn(dart.legacy(pokemon$.Species)))(),
+    ListOfSpeciesL: () => (T.ListOfSpeciesL = dart.constFn(core.List$(T.SpeciesL())))(),
+    dynamicToSpeciesL: () => (T.dynamicToSpeciesL = dart.constFn(dart.fnType(T.SpeciesL(), [dart.dynamic])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = ["package:pokedex2/pokemon.dart"];
+  var pokemons = dart.privateName(pokemon$, "Pokemons.pokemons");
+  pokemon$.Pokemons = class Pokemons extends core.Object {
+    get pokemons() {
+      return this[pokemons];
+    }
+    set pokemons(value) {
+      this[pokemons] = value;
+    }
+  };
+  (pokemon$.Pokemons.fromJson = function(json) {
+    this[pokemons] = T.JSArrayOfBasePokemonL().of([]);
+    if (json == null) return;
+    json[$forEach](dart.fn(item => {
+      let pokemon = pokemon$.BasePokemon.fromJson(T.MapLOfStringL$dynamic().as(item));
+      this.pokemons[$add](pokemon);
+    }, T.dynamicToNull()));
+  }).prototype = pokemon$.Pokemons.prototype;
+  dart.addTypeTests(pokemon$.Pokemons);
+  dart.addTypeCaches(pokemon$.Pokemons);
+  dart.setLibraryUri(pokemon$.Pokemons, I[0]);
+  dart.setFieldSignature(pokemon$.Pokemons, () => ({
+    __proto__: dart.getFields(pokemon$.Pokemons.__proto__),
+    pokemons: dart.fieldType(dart.legacy(core.List$(dart.legacy(pokemon$.BasePokemon))))
+  }));
+  var name$ = dart.privateName(pokemon$, "BasePokemon.name");
+  var url$ = dart.privateName(pokemon$, "BasePokemon.url");
+  pokemon$.BasePokemon = class BasePokemon extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      this[name$] = value;
+    }
+    get url() {
+      return this[url$];
+    }
+    set url(value) {
+      this[url$] = value;
+    }
+    static fromJson(json) {
+      return new pokemon$.BasePokemon.new({name: T.StringL().as(json[$_get]("name")), url: T.StringL().as(json[$_get]("url"))});
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["name", this.name, "url", this.url]);
+    }
+  };
+  (pokemon$.BasePokemon.new = function(opts) {
+    let name = opts && 'name' in opts ? opts.name : null;
+    let url = opts && 'url' in opts ? opts.url : null;
+    this[name$] = name;
+    this[url$] = url;
+    ;
+  }).prototype = pokemon$.BasePokemon.prototype;
+  dart.addTypeTests(pokemon$.BasePokemon);
+  dart.addTypeCaches(pokemon$.BasePokemon);
+  dart.setMethodSignature(pokemon$.BasePokemon, () => ({
+    __proto__: dart.getMethods(pokemon$.BasePokemon.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(pokemon$.BasePokemon, I[0]);
+  dart.setFieldSignature(pokemon$.BasePokemon, () => ({
+    __proto__: dart.getFields(pokemon$.BasePokemon.__proto__),
+    name: dart.fieldType(dart.legacy(core.String)),
+    url: dart.fieldType(dart.legacy(core.String))
+  }));
+  var id$ = dart.privateName(pokemon$, "Pokemon.id");
+  var name$0 = dart.privateName(pokemon$, "Pokemon.name");
+  var species$ = dart.privateName(pokemon$, "Pokemon.species");
+  var sprites$ = dart.privateName(pokemon$, "Pokemon.sprites");
+  var stats$ = dart.privateName(pokemon$, "Pokemon.stats");
+  var types$ = dart.privateName(pokemon$, "Pokemon.types");
+  var forms$ = dart.privateName(pokemon$, "Pokemon.forms");
+  var weight$ = dart.privateName(pokemon$, "Pokemon.weight");
+  var base_experience$ = dart.privateName(pokemon$, "Pokemon.base_experience");
+  var height$ = dart.privateName(pokemon$, "Pokemon.height");
+  pokemon$.Pokemon = class Pokemon extends core.Object {
+    get id() {
+      return this[id$];
+    }
+    set id(value) {
+      this[id$] = value;
+    }
+    get name() {
+      return this[name$0];
+    }
+    set name(value) {
+      this[name$0] = value;
+    }
+    get species() {
+      return this[species$];
+    }
+    set species(value) {
+      this[species$] = value;
+    }
+    get sprites() {
+      return this[sprites$];
+    }
+    set sprites(value) {
+      this[sprites$] = value;
+    }
+    get stats() {
+      return this[stats$];
+    }
+    set stats(value) {
+      this[stats$] = value;
+    }
+    get types() {
+      return this[types$];
+    }
+    set types(value) {
+      this[types$] = value;
+    }
+    get forms() {
+      return this[forms$];
+    }
+    set forms(value) {
+      this[forms$] = value;
+    }
+    get weight() {
+      return this[weight$];
+    }
+    set weight(value) {
+      this[weight$] = value;
+    }
+    get base_experience() {
+      return this[base_experience$];
+    }
+    set base_experience(value) {
+      this[base_experience$] = value;
+    }
+    get height() {
+      return this[height$];
+    }
+    set height(value) {
+      this[height$] = value;
+    }
+    static fromJson(json) {
+      return new pokemon$.Pokemon.new({id: T.intL().as(json[$_get]("id")), name: T.StringL().as(json[$_get]("name")), weight: T.intL().as(json[$_get]("weight")), height: T.intL().as(json[$_get]("height")), base_experience: T.intL().as(json[$_get]("base_experience")), stats: T.ListOfStatL().from(core.Iterable.as(dart.dsend(json[$_get]("stats"), 'map', [dart.fn(x => pokemon$.Stat.fromJson(T.MapLOfStringL$dynamic().as(x)), T.dynamicToStatL())]))), types: T.ListOfTypeL().from(core.Iterable.as(dart.dsend(json[$_get]("types"), 'map', [dart.fn(x => pokemon$.Type.fromJson(T.MapLOfStringL$dynamic().as(x)), T.dynamicToTypeL())]))), forms: T.ListOfSpeciesL().from(core.Iterable.as(dart.dsend(json[$_get]("forms"), 'map', [dart.fn(x => pokemon$.Species.fromJson(T.MapLOfStringL$dynamic().as(x)), T.dynamicToSpeciesL())]))), species: pokemon$.Species.fromJson(T.MapLOfStringL$dynamic().as(json[$_get]("species"))), sprites: pokemon$.Sprites.fromJson(T.MapLOfStringL$dynamic().as(json[$_get]("sprites")))});
+    }
+  };
+  (pokemon$.Pokemon.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    let species = opts && 'species' in opts ? opts.species : null;
+    let sprites = opts && 'sprites' in opts ? opts.sprites : null;
+    let stats = opts && 'stats' in opts ? opts.stats : null;
+    let types = opts && 'types' in opts ? opts.types : null;
+    let forms = opts && 'forms' in opts ? opts.forms : null;
+    let weight = opts && 'weight' in opts ? opts.weight : null;
+    let base_experience = opts && 'base_experience' in opts ? opts.base_experience : null;
+    let height = opts && 'height' in opts ? opts.height : null;
+    this[id$] = id;
+    this[name$0] = name;
+    this[species$] = species;
+    this[sprites$] = sprites;
+    this[stats$] = stats;
+    this[types$] = types;
+    this[forms$] = forms;
+    this[weight$] = weight;
+    this[base_experience$] = base_experience;
+    this[height$] = height;
+    ;
+  }).prototype = pokemon$.Pokemon.prototype;
+  dart.addTypeTests(pokemon$.Pokemon);
+  dart.addTypeCaches(pokemon$.Pokemon);
+  dart.setLibraryUri(pokemon$.Pokemon, I[0]);
+  dart.setFieldSignature(pokemon$.Pokemon, () => ({
+    __proto__: dart.getFields(pokemon$.Pokemon.__proto__),
+    id: dart.fieldType(dart.legacy(core.int)),
+    name: dart.fieldType(dart.legacy(core.String)),
+    species: dart.fieldType(dart.legacy(pokemon$.Species)),
+    sprites: dart.fieldType(dart.legacy(pokemon$.Sprites)),
+    stats: dart.fieldType(dart.legacy(core.List$(dart.legacy(pokemon$.Stat)))),
+    types: dart.fieldType(dart.legacy(core.List$(dart.legacy(pokemon$.Type)))),
+    forms: dart.fieldType(dart.legacy(core.List$(dart.legacy(pokemon$.Species)))),
+    weight: dart.fieldType(dart.legacy(core.int)),
+    base_experience: dart.fieldType(dart.legacy(core.int)),
+    height: dart.fieldType(dart.legacy(core.int))
+  }));
+  var frontDefault$ = dart.privateName(pokemon$, "Sprites.frontDefault");
+  pokemon$.Sprites = class Sprites extends core.Object {
+    get frontDefault() {
+      return this[frontDefault$];
+    }
+    set frontDefault(value) {
+      this[frontDefault$] = value;
+    }
+    static fromJson(json) {
+      return new pokemon$.Sprites.new({frontDefault: T.StringL().as(json[$_get]("front_default"))});
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["front_default", this.frontDefault]);
+    }
+  };
+  (pokemon$.Sprites.new = function(opts) {
+    let frontDefault = opts && 'frontDefault' in opts ? opts.frontDefault : null;
+    this[frontDefault$] = frontDefault;
+    ;
+  }).prototype = pokemon$.Sprites.prototype;
+  dart.addTypeTests(pokemon$.Sprites);
+  dart.addTypeCaches(pokemon$.Sprites);
+  dart.setMethodSignature(pokemon$.Sprites, () => ({
+    __proto__: dart.getMethods(pokemon$.Sprites.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(pokemon$.Sprites, I[0]);
+  dart.setFieldSignature(pokemon$.Sprites, () => ({
+    __proto__: dart.getFields(pokemon$.Sprites.__proto__),
+    frontDefault: dart.fieldType(dart.legacy(core.String))
+  }));
+  var baseStat$ = dart.privateName(pokemon$, "Stat.baseStat");
+  var effort$ = dart.privateName(pokemon$, "Stat.effort");
+  var stat$ = dart.privateName(pokemon$, "Stat.stat");
+  pokemon$.Stat = class Stat extends core.Object {
+    get baseStat() {
+      return this[baseStat$];
+    }
+    set baseStat(value) {
+      this[baseStat$] = value;
+    }
+    get effort() {
+      return this[effort$];
+    }
+    set effort(value) {
+      this[effort$] = value;
+    }
+    get stat() {
+      return this[stat$];
+    }
+    set stat(value) {
+      this[stat$] = value;
+    }
+    static fromJson(json) {
+      return new pokemon$.Stat.new({baseStat: T.intL().as(json[$_get]("base_stat")), effort: T.intL().as(json[$_get]("effort")), stat: pokemon$.Species.fromJson(T.MapLOfStringL$dynamic().as(json[$_get]("stat")))});
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["base_stat", this.baseStat, "effort", this.effort, "stat", this.stat.toJson()]);
+    }
+  };
+  (pokemon$.Stat.new = function(opts) {
+    let baseStat = opts && 'baseStat' in opts ? opts.baseStat : null;
+    let effort = opts && 'effort' in opts ? opts.effort : null;
+    let stat = opts && 'stat' in opts ? opts.stat : null;
+    this[baseStat$] = baseStat;
+    this[effort$] = effort;
+    this[stat$] = stat;
+    ;
+  }).prototype = pokemon$.Stat.prototype;
+  dart.addTypeTests(pokemon$.Stat);
+  dart.addTypeCaches(pokemon$.Stat);
+  dart.setMethodSignature(pokemon$.Stat, () => ({
+    __proto__: dart.getMethods(pokemon$.Stat.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(pokemon$.Stat, I[0]);
+  dart.setFieldSignature(pokemon$.Stat, () => ({
+    __proto__: dart.getFields(pokemon$.Stat.__proto__),
+    baseStat: dart.fieldType(dart.legacy(core.int)),
+    effort: dart.fieldType(dart.legacy(core.int)),
+    stat: dart.fieldType(dart.legacy(pokemon$.Species))
+  }));
+  var slot$ = dart.privateName(pokemon$, "Type.slot");
+  var type$ = dart.privateName(pokemon$, "Type.type");
+  pokemon$.Type = class Type extends core.Object {
+    get slot() {
+      return this[slot$];
+    }
+    set slot(value) {
+      this[slot$] = value;
+    }
+    get type() {
+      return this[type$];
+    }
+    set type(value) {
+      this[type$] = value;
+    }
+    static fromJson(json) {
+      return new pokemon$.Type.new({slot: T.intL().as(json[$_get]("slot")), type: pokemon$.Species.fromJson(T.MapLOfStringL$dynamic().as(json[$_get]("type")))});
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["slot", this.slot, "type", this.type.toJson()]);
+    }
+  };
+  (pokemon$.Type.new = function(opts) {
+    let slot = opts && 'slot' in opts ? opts.slot : null;
+    let type = opts && 'type' in opts ? opts.type : null;
+    this[slot$] = slot;
+    this[type$] = type;
+    ;
+  }).prototype = pokemon$.Type.prototype;
+  dart.addTypeTests(pokemon$.Type);
+  dart.addTypeCaches(pokemon$.Type);
+  dart.setMethodSignature(pokemon$.Type, () => ({
+    __proto__: dart.getMethods(pokemon$.Type.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(pokemon$.Type, I[0]);
+  dart.setFieldSignature(pokemon$.Type, () => ({
+    __proto__: dart.getFields(pokemon$.Type.__proto__),
+    slot: dart.fieldType(dart.legacy(core.int)),
+    type: dart.fieldType(dart.legacy(pokemon$.Species))
+  }));
+  var name$1 = dart.privateName(pokemon$, "Species.name");
+  var url$0 = dart.privateName(pokemon$, "Species.url");
+  pokemon$.Species = class Species extends core.Object {
+    get name() {
+      return this[name$1];
+    }
+    set name(value) {
+      this[name$1] = value;
+    }
+    get url() {
+      return this[url$0];
+    }
+    set url(value) {
+      this[url$0] = value;
+    }
+    static fromJson(json) {
+      return new pokemon$.Species.new({name: T.StringL().as(json[$_get]("name")), url: T.StringL().as(json[$_get]("url"))});
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["name", this.name, "url", this.url]);
+    }
+  };
+  (pokemon$.Species.new = function(opts) {
+    let name = opts && 'name' in opts ? opts.name : null;
+    let url = opts && 'url' in opts ? opts.url : null;
+    this[name$1] = name;
+    this[url$0] = url;
+    ;
+  }).prototype = pokemon$.Species.prototype;
+  dart.addTypeTests(pokemon$.Species);
+  dart.addTypeCaches(pokemon$.Species);
+  dart.setMethodSignature(pokemon$.Species, () => ({
+    __proto__: dart.getMethods(pokemon$.Species.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(pokemon$.Species, I[0]);
+  dart.setFieldSignature(pokemon$.Species, () => ({
+    __proto__: dart.getFields(pokemon$.Species.__proto__),
+    name: dart.fieldType(dart.legacy(core.String)),
+    url: dart.fieldType(dart.legacy(core.String))
+  }));
+  pokemon$.pokemonFromJson = function pokemonFromJson(str) {
+    return pokemon$.Pokemon.fromJson(T.MapLOfStringL$dynamic().as(convert.json.decode(str)));
+  };
+  dart.trackLibraries("packages/pokedex2/pokemon.dart", {
+    "package:pokedex2/pokemon.dart": pokemon$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["pokemon.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAIoB;;;;;;;yCAEc;IAFd,iBAAW;AAG3B,QAAI,AAAK,IAAD,UAAU;AAKhB,IAHF,AAAK,IAAD,WAAS,QAAC;AACN,oBAAsB,2DAAS,IAAI;AACpB,MAArB,AAAS,oBAAI,OAAO;;EAExB;;;;;;;;;;;IAIO;;;;;;IACA;;;;;;oBAO2C;AAChD,YAAO,oDACC,AAAI,IAAA,QAAC,8BACN,AAAI,IAAA,QAAC;IAEd;;AAEiC,0DAAC,QAAQ,WAAM,OAAO;IAAI;;;QAXpD;QACA;IADA;IACA;;EACL;;;;;;;;;;;;;;;;;;;;;;;;IAeE;;;;;;IACG;;;;;;IACC;;;;;;IACA;;;;;;IACG;;;;;;IACA;;;;;;IACG;;;;;;IACV;;;;;;IAEA;;;;;;IACA;;;;;;oBAgB0C;AAAS,uDAC7C,AAAI,IAAA,QAAC,6BACH,AAAI,IAAA,QAAC,8BACH,AAAI,IAAA,QAAC,gCACL,AAAI,IAAA,QAAC,yCACI,AAAI,IAAA,QAAC,4BACf,sCAA8B,WAAd,AAAI,IAAA,QAAC,kBAAa,QAAC,KAAW,oDAAS,CAAC,oCACxD,sCAA8B,WAAd,AAAI,IAAA,QAAC,kBAAa,QAAC,KAAW,oDAAS,CAAC,oCACxD,yCACS,WAAd,AAAI,IAAA,QAAC,kBAAa,QAAC,KAAc,uDAAS,CAAC,yCAE5B,uDAAS,AAAI,IAAA,QAAC,uBACd,uDAAS,AAAI,IAAA,QAAC;IAChC;;;QA1BE;QACA;QACA;QACA;QACA;QACA;QACA;QACU;QAEA;QACA;IAVV;IACA;IACA;IACA;IACA;IACA;IACA;IACU;IAEA;IACA;;EACf;;;;;;;;;;;;;;;;;;;IAmBK;;;;;;oBAMuC;AAAS,oEACnC,AAAI,IAAA,QAAC;IACpB;;AAE4B,0DAC3B,iBAAiB;IAClB;;;QATE;;;EACL;;;;;;;;;;;;;;;;IAYE;;;;;;IACA;;;;;;IACI;;;;;;oBAQmC;AAAS,0DACpC,AAAI,IAAA,QAAC,mCACP,AAAI,IAAA,QAAC,kBACC,uDAAS,AAAI,IAAA,QAAC;IAC7B;;AAE4B,0DAC3B,aAAa,eACb,UAAU,aACV,QAAQ,AAAK;IACd;;;QAfE;QACA;QACA;IAFA;IACA;IACA;;EACL;;;;;;;;;;;;;;;;;IAgBE;;;;;;IACI;;;;;;oBAOmC;AAAS,sDACxC,AAAI,IAAA,QAAC,gBACG,uDAAS,AAAI,IAAA,QAAC;IAC7B;;AAE4B,0DAC3B,QAAQ,WACR,QAAQ,AAAK;IACd;;;QAZE;QACA;IADA;IACA;;EACL;;;;;;;;;;;;;;;;IAcK;;;;;;IACA;;;;;;oBAOuC;AAAS,4DAC3C,AAAI,IAAA,QAAC,8BACN,AAAI,IAAA,QAAC;IACX;;AAE4B,0DAC3B,QAAQ,WACR,OAAO;IACR;;;QAZE;QACA;IADA;IACA;;EACL;;;;;;;;;;;;;sDAhH2B;AAAQ,UAAQ,wDAAS,AAAK,oBAAO,GAAG;EAAE","file":"../../../../../packages/pokedex2/pokemon.dart.lib.js"}');
+  // Exports:
+  return {
+    pokemon: pokemon$
+  };
+}));
+
+//# sourceMappingURL=pokemon.dart.lib.js.map

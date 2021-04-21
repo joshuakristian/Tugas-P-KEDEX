@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/pokedex2/MainActivity.java
+ com.example.pokedex2.MainActivity
+com/example/pokedex2/BuildConfig.java
+ com.example.pokedex2.BuildConfig

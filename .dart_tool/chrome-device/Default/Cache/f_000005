@@ -1,0 +1,780 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/http/http.dart', 'packages/pokedex2/pokemon.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/search.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/pokedex2/pokemon_card.dart', 'packages/flutter/src/material/animated_icons.dart'], (function load__packages__pokedex2__pokedex_view_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__http__http$46dart, packages__pokedex2__pokemon$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__search$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__pokedex2__pokemon_card$46dart, packages__flutter__src__material__animated_icons$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const convert = dart_sdk.convert;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const http = packages__http__http$46dart.http;
+  const pokemon = packages__pokedex2__pokemon$46dart.pokemon;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const search = packages__flutter__src__material__search$46dart.src__material__search;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const pokemon_card = packages__pokedex2__pokemon_card$46dart.pokemon_card;
+  const animated_icons = packages__flutter__src__material__animated_icons$46dart.src__material__animated_icons;
+  var pokedex_view = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $isEmpty = dartx.isEmpty;
+  var $contains = dartx.contains;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    ListL: () => (T.ListL = dart.constFn(dart.legacy(core.List)))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    PokemonsL: () => (T.PokemonsL = dart.constFn(dart.legacy(pokemon.Pokemons)))(),
+    ListOfPokemonsL: () => (T.ListOfPokemonsL = dart.constFn(core.List$(T.PokemonsL())))(),
+    ListLOfPokemonsL: () => (T.ListLOfPokemonsL = dart.constFn(dart.legacy(T.ListOfPokemonsL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
+    AlwaysStoppedAnimationOfColorL: () => (T.AlwaysStoppedAnimationOfColorL = dart.constFn(animations.AlwaysStoppedAnimation$(T.ColorL())))(),
+    ListOfWidgetL: () => (T.ListOfWidgetL = dart.constFn(core.List$(T.WidgetL())))(),
+    PokeCardL: () => (T.PokeCardL = dart.constFn(dart.legacy(pokemon_card.PokeCard)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    intLToPokeCardL: () => (T.intLToPokeCardL = dart.constFn(dart.fnType(T.PokeCardL(), [T.intL()])))(),
+    JSArrayOfStringL: () => (T.JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(T.StringL())))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    BuildContextLAndintLToWidgetL: () => (T.BuildContextLAndintLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL(), T.intL()])))(),
+    IdentityMapOfStringL$dynamic: () => (T.IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(T.StringL(), dart.dynamic)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 11,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 32,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tooltip",
+        [_Location_column]: 15,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 15,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 9,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "centerTitle",
+        [_Location_column]: 9,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 9,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "valueColor",
+        [_Location_column]: 19,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21], T._LocationL());
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "pokeURL",
+        [_Location_column]: 27,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisCount",
+        [_Location_column]: 17,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28], T._LocationL());
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31], T._LocationL());
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 7,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 7,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36], T._LocationL());
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[33] || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 28,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39], T._LocationL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 11,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 11,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[41] || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 105,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 11,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "progress",
+        [_Location_column]: 11,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], T._LocationL());
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 9,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "pokeURL",
+        [_Location_column]: 21,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54], T._LocationL());
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 136,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 21,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57], T._LocationL());
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 135,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 140,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60], T._LocationL());
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 139,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 9,
+        [_Location_line]: 132,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 9,
+        [_Location_line]: 133,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64], T._LocationL());
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 131,
+        [_Location_file]: "file:///C:/Users/SeltZoar/Downloads/PokedexApp-master-2/lib/pokedex_view.dart"
+      });
+    }
+  }, false);
+  var C = Array(65).fill(void 0);
+  var I = ["package:pokedex2/pokedex_view.dart"];
+  pokedex_view.MyHomePage = class MyHomePage extends framework.StatefulWidget {
+    createState() {
+      return new pokedex_view._MyHomePageState.new();
+    }
+  };
+  (pokedex_view.MyHomePage.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    pokedex_view.MyHomePage.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = pokedex_view.MyHomePage.prototype;
+  dart.addTypeTests(pokedex_view.MyHomePage);
+  dart.addTypeCaches(pokedex_view.MyHomePage);
+  dart.setMethodSignature(pokedex_view.MyHomePage, () => ({
+    __proto__: dart.getMethods(pokedex_view.MyHomePage.__proto__),
+    createState: dart.fnType(dart.legacy(pokedex_view._MyHomePageState), [])
+  }));
+  dart.setLibraryUri(pokedex_view.MyHomePage, I[0]);
+  dart.defineLazy(pokedex_view.MyHomePage, {
+    /*pokedex_view.MyHomePage.url*/get url() {
+      return "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0";
+    }
+  }, true);
+  var _fetchData = dart.privateName(pokedex_view, "_fetchData");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  pokedex_view._MyHomePageState = class _MyHomePageState extends framework.State$(dart.legacy(pokedex_view.MyHomePage)) {
+    [_fetchData]() {
+      return async.async(T.ListLOfPokemonsL(), (function* _fetchData() {
+        let response = (yield http.get(pokedex_view.MyHomePage.url));
+        let decode = convert.json.decode(response.body);
+        let data = new pokemon.Pokemons.fromJson(T.ListL().as(dart.dsend(decode, '_get', ["results"])));
+        core.print(data.pokemons);
+        this.setState(dart.fn(() => {
+          this.pokemons = data;
+        }, T.VoidToNull()));
+      }).bind(this));
+    }
+    initState() {
+      this[_fetchData]();
+      super.initState();
+    }
+    build(context) {
+      return new scaffold.Scaffold.new({backgroundColor: this.bgColor, appBar: new app_bar.AppBar.new({title: new text.Text.new("PoKedeX", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), centerTitle: true, actions: T.JSArrayOfWidgetL().of([new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.search, {$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), tooltip: "Search Pokemon", onPressed: dart.fn(() => {
+                search.showSearch(T.StringL(), {context: context, delegate: new pokedex_view.DataSearch.new(this.pokemons)});
+              }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6})]), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), body: new container.Container.new({child: this.pokemons == null ? new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({valueColor: new (T.AlwaysStoppedAnimationOfColorL()).new(colors.Colors.yellow), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}) : new scroll_view.GridView.count({crossAxisCount: 2, children: T.ListOfWidgetL().generate(this.pokemons.pokemons[$length], dart.fn(index => new pokemon_card.PokeCard.new({pokeURL: this.pokemons.pokemons[$_get](index).url, $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), T.intLToPokeCardL())), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32});
+    }
+  };
+  (pokedex_view._MyHomePageState.new = function() {
+    this.pokemons = null;
+    this.bgColor = new ui.Color.new(4281939510);
+    pokedex_view._MyHomePageState.__proto__.new.call(this);
+    ;
+  }).prototype = pokedex_view._MyHomePageState.prototype;
+  dart.addTypeTests(pokedex_view._MyHomePageState);
+  dart.addTypeCaches(pokedex_view._MyHomePageState);
+  dart.setMethodSignature(pokedex_view._MyHomePageState, () => ({
+    __proto__: dart.getMethods(pokedex_view._MyHomePageState.__proto__),
+    [_fetchData]: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(pokemon.Pokemons))))), []),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(pokedex_view._MyHomePageState, I[0]);
+  dart.setFieldSignature(pokedex_view._MyHomePageState, () => ({
+    __proto__: dart.getFields(pokedex_view._MyHomePageState.__proto__),
+    pokemons: dart.fieldType(dart.legacy(pokemon.Pokemons)),
+    bgColor: dart.fieldType(dart.legacy(ui.Color))
+  }));
+  var all = dart.privateName(pokedex_view, "DataSearch.all");
+  var recent = dart.privateName(pokedex_view, "DataSearch.recent");
+  var _pokemons$ = dart.privateName(pokedex_view, "_pokemons");
+  pokedex_view.DataSearch = class DataSearch extends search.SearchDelegate$(dart.legacy(core.String)) {
+    get all() {
+      return this[all];
+    }
+    set all(value) {
+      super.all = value;
+    }
+    get recent() {
+      return this[recent];
+    }
+    set recent(value) {
+      super.recent = value;
+    }
+    appBarTheme(context) {
+      let theme = theme$.Theme.of(context);
+      return theme.copyWith({primaryColor: theme.primaryColor});
+    }
+    buildActions(context) {
+      return T.JSArrayOfWidgetL().of([new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.clear, {$creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), onPressed: dart.fn(() => {
+            this.query = "";
+          }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40})]);
+    }
+    buildLeading(context) {
+      return new icon_button.IconButton.new({icon: new animated_icons.AnimatedIcon.new({icon: animated_icons.AnimatedIcons.menu_arrow, progress: this.transitionAnimation, $creationLocationd_0dea112b090073317d4: C[44] || CT.C44}), onPressed: dart.fn(() => {
+          this.close(context, null);
+        }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
+    }
+    buildResults(context) {
+    }
+    buildSuggestions(context) {
+      return new scroll_view.ListView.builder({itemCount: this.query[$isEmpty] ? 3 : this[_pokemons$].pokemons[$length], itemBuilder: dart.fn((context, index) => this[_pokemons$].pokemons[$_get](index).name[$contains](this.query) ? new list_tile.ListTile.new({title: new pokemon_card.PokeCard.new({pokeURL: this[_pokemons$].pokemons[$_get](index).url, $creationLocationd_0dea112b090073317d4: C[52] || CT.C52}), $creationLocationd_0dea112b090073317d4: C[55] || CT.C55}) : new basic.Row.new({children: T.JSArrayOfWidgetL().of([]), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), T.BuildContextLAndintLToWidgetL()), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61});
+    }
+  };
+  (pokedex_view.DataSearch.new = function(_pokemons) {
+    this[all] = T.JSArrayOfStringL().of(["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", ""]);
+    this[recent] = T.JSArrayOfStringL().of(["bulbasaur", "ivysaur", "venusaur"]);
+    this[_pokemons$] = _pokemons;
+    pokedex_view.DataSearch.__proto__.new.call(this);
+    ;
+  }).prototype = pokedex_view.DataSearch.prototype;
+  dart.addTypeTests(pokedex_view.DataSearch);
+  dart.addTypeCaches(pokedex_view.DataSearch);
+  dart.setMethodSignature(pokedex_view.DataSearch, () => ({
+    __proto__: dart.getMethods(pokedex_view.DataSearch.__proto__),
+    appBarTheme: dart.fnType(dart.legacy(theme_data.ThemeData), [dart.legacy(framework.BuildContext)]),
+    buildActions: dart.fnType(dart.legacy(core.List$(dart.legacy(framework.Widget))), [dart.legacy(framework.BuildContext)]),
+    buildLeading: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    buildResults: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    buildSuggestions: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(pokedex_view.DataSearch, I[0]);
+  dart.setFieldSignature(pokedex_view.DataSearch, () => ({
+    __proto__: dart.getFields(pokedex_view.DataSearch.__proto__),
+    [_pokemons$]: dart.fieldType(dart.legacy(pokemon.Pokemons)),
+    all: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(core.String)))),
+    recent: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(core.String))))
+  }));
+  var name$ = dart.privateName(pokedex_view, "getBase.name");
+  var url$ = dart.privateName(pokedex_view, "getBase.url");
+  pokedex_view.getBase = class getBase extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      this[name$] = value;
+    }
+    get url() {
+      return this[url$];
+    }
+    set url(value) {
+      this[url$] = value;
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["name", this.name, "url", this.url]);
+    }
+    static fromJson(json) {
+      return new pokedex_view.getBase.new({name: T.StringL().as(json[$_get]("name")), url: T.StringL().as(json[$_get]("url"))});
+    }
+  };
+  (pokedex_view.getBase.new = function(opts) {
+    let name = opts && 'name' in opts ? opts.name : null;
+    let url = opts && 'url' in opts ? opts.url : null;
+    this[name$] = name;
+    this[url$] = url;
+    ;
+  }).prototype = pokedex_view.getBase.prototype;
+  dart.addTypeTests(pokedex_view.getBase);
+  dart.addTypeCaches(pokedex_view.getBase);
+  dart.setMethodSignature(pokedex_view.getBase, () => ({
+    __proto__: dart.getMethods(pokedex_view.getBase.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(pokedex_view.getBase, I[0]);
+  dart.setFieldSignature(pokedex_view.getBase, () => ({
+    __proto__: dart.getFields(pokedex_view.getBase.__proto__),
+    name: dart.fieldType(dart.legacy(core.String)),
+    url: dart.fieldType(dart.legacy(core.String))
+  }));
+  dart.trackLibraries("packages/pokedex2/pokedex_view.dart", {
+    "package:pokedex2/pokedex_view.dart": pokedex_view
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["pokedex_view.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAWoC;IAAkB;;;;;;EACtD;;;;;;;;;MALsB,2BAAG;;;;;;;;;;;;AAYU;AACzB,wBAAW,MAAM,SAAoB;AACrC,qBAAS,AAAK,oBAAO,AAAS,QAAD;AAC7B,mBAAgB,2CAAe,WAAN,MAAM,WAAC;AAClB,QAApB,WAAM,AAAK,IAAD;AAIR,QAFF,cAAS;AACQ,UAAf,gBAAW,IAAI;;MAEnB;;;AAGc,MAAZ;AACiB,MAAX;IACR;UAG0B;AACxB,YAAO,6CACY,sBACT,+BACC,kBACL,kFAEW,eACJ,yBACP,sCACU,kBAAW,uFACR,6BACE;AACmD,gBAA5D,yCAAoB,OAAO,YAAY,gCAAW;8JAItD,oCACG,AAAS,wBACV,6BACS,kEACO,6CAAqC,8IAG5C,gDACS,aACD,2BACX,AAAS,AAAS,iCAClB,QAAC,SAAU,wCACI,AAAS,AAAQ,AAAQ,8BAAP,KAAK;IAKxD;;;IAvDS;IAEH,eAAU,iBAAM;;;EAsDxB;;;;;;;;;;;;;;;;;;IAOQ;;;;;;IAUA;;;;;;gBAM6B;AACjB,kBAAc,gBAAG,OAAO;AACxC,YAAO,AAAM,MAAD,yBACI,AAAM,KAAD;IAEvB;iBAGuC;AACrC,YAAO,0BACL,sCACU,kBAAW,0FACN;AACC,YAAV,aAAQ;;IAGlB;iBAGiC;AAC/B,YAAO,uCACG,2CACgB,mDACV,gGAED;AACW,UAApB,WAAM,OAAO,EAAE;;IAEvB;iBAIiC;IAAU;qBAGN;AACnC,YAAgB,8CACD,AAAM,uBAAU,IAAI,AAAU,AAAS,iDACrC,SAAC,SAAS,UACnB,AAAU,AAAQ,AAAQ,AAAK,iCAAZ,KAAK,kBAAgB,cAClC,mCACS,wCACE,AAAU,AAAQ,AAAQ,iCAAP,KAAK,8HAEnC,6BACY;IAE5B;;0CAjEgB;IAEV,YAAM,yBACV,aACA,WACA,YACA,cACA,cACA,aACA;IAGI,eAAS,yBACb,aACA,WACA;IAfc;AAAhB;;EAA0B;;;;;;;;;;;;;;;;;;;;;IAsEnB;;;;;;IACA;;;;;;;AAO0B,0DAAC,QAAQ,WAAM,OAAO;IAAI;oBAEb;AAC5C,YAAO,oDACC,AAAI,IAAA,QAAC,8BACN,AAAI,IAAA,QAAC;IAEd;;;QAXO;QACA;IADA;IACA;;EACL","file":"../../../../../packages/pokedex2/pokedex_view.dart.lib.js"}');
+  // Exports:
+  return {
+    pokedex_view: pokedex_view
+  };
+}));
+
+//# sourceMappingURL=pokedex_view.dart.lib.js.map
